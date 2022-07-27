@@ -1,0 +1,13 @@
+.idea
+__pycache__/
+
+
+data
+meetings
+notebooks
+venv
+
+.editorconfig
+*.png
+*.xcf
+TODO

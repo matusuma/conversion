@@ -1,0 +1,81 @@
+preprocess:
+  StartDateStr: "2022-05-02"
+  hours_offset: "2"
+  LastDateStr: "2022-05-07"
+  RANGE_FORWARD: [0,0,3]  # [Y,M,D]
+  RANGE_BACK: [0,-1,0]
+  RANGE_STEP: [0,0,1]
+  domain: 'cz'
+  overwrite_data: False
+  overwrite_calc: True
+  significant_cutoff: 200
+  full_period_normalization: False
+
+BQ:
+  SCOPES: ['https://www.googleapis.com/auth/bigquery']
+  SERVICE_ACCOUNT_FILE: 'biano-1152.json'
+ga_country_id:
+  cz: 278541188
+
+page_type_map_to_id:
+  add_to_cart: 0
+  product_view: 1
+  page_view: 2
+  purchase: 3
+  button_impression: 4
+  button_click: 5
+
+prepare_training:
+  StartDateStr: "2022-05-02"
+  LastDateStr: "2022-05-06"
+  split: [0.25,0.25]  #test, validate, rest is training
+  n_features: 7
+
+hyper:
+  num_layers: [64]
+  hidden_size: [512]
+  learning_rate: [1e-4]
+
+training_params:
+  stateful: True
+  batch_size: 8
+  mom: 0.3
+  epochs: 15
+  min_delta: 0.05
+  patience_epochs: 2
+  accum_iter: 256
+  cpu_cores: 4  # workers, 4 = empirical web value
+  dtype: float32
+  adam_amsg: True
+  enforce_cpu: False
+
+validation_params:
+  batch_size: 8
+  epochs: 6
+  cpu_cores: 4  # workers, 4 = empirical web value
+  dtype: float32
+  enforce_cpu: False
+
+artificial:
+  n_users: 10000
+  n_blocks: [4, 2, 1]
+  names_train: ['block1', 'block2', 'block3', 'block4']
+  names_test: ['block5', 'block6']
+  names_val: ['block7']
+  n_features: 2
+  num_layers: 16
+  hidden_size: 128
+  visualize: True
+  recalculate: True
+  enforce_cpu: False
+  dtype: torch.float32
+  plot_size: 20
+  # Training params
+  cpu_cores: 4
+  lrate: 5e-4
+  batch_size: 8
+  mom: 0.3
+  epochs: 10
+  accum_iter: 256
+  stateful: True
+

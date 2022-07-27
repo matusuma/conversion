@@ -1,0 +1,14 @@
+loguru
+numpy
+pandas
+python_dateutil
+tqdm
+google-cloud-bigquery~=1.24.0
+python-dotenv
+matplotlib
+jupyter
+ipython
+pyyaml
+optuna
+prettytable
+python-dotenv

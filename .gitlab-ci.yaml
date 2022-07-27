@@ -1,0 +1,18 @@
+#include:
+##  - project: 'ai/infrastructure/ci-templates'
+##    file: '/fragments/argocd_deploy.yaml'
+#  - project: 'ai/infrastructure/ci-templates'
+#    file: '/fragments/ecr_publish.yaml'
+#
+#  - project: 'ai/infrastructure/ci-templates'
+#    file: '/variables/global.yaml'
+#  - project: 'ai/infrastructure/ci-templates'
+#    file: '/variables/pip.yaml'
+#
+#variables:
+#  LOCAL_DOCKER_IMAGE: "vize/conversion-prediction"
+##  ARGOCD_PROJECT_SUBDIRECTORY: "conversion-prediction"
+#
+#stages:
+#  - package
+#  - deploy
